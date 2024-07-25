@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "HappyDay",
+    "slug": "HappyDay",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/images/logos/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#821FFF"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.chewbacca234.HappyDay"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/logos/adaptive-icon.png",
+        "backgroundColor": "#388EA9"
+      },
+      "package": "com.chewbacca234.HappyDay"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b8883ac4-5bbb-4ce7-ad67-e6f3cc530cb8"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/b8883ac4-5bbb-4ce7-ad67-e6f3cc530cb8"
+    }
+  }
+}
