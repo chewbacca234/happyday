@@ -19,7 +19,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 const persistConfig = {
   key: 'happyday',
   storage: AsyncStorage,
-  whitelist: ['user'],
+  whitelist: ['user', 'dailyChallenge'],
 };
 
 const reducers = combineReducers({

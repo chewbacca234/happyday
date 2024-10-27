@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { styles, colors, urls } from '../../constants';
+import { styles, colors, Images } from '../../config';
 import { LinearGradient } from 'expo-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import * as ImagePicker from 'expo-image-picker';
@@ -33,12 +33,7 @@ import { updateScoreAndLevel } from '../../reducers/user';
 
 const BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
 
-export const ChallengeDetailsModal = ({
-  challenge,
-  onClosed,
-  isOpen,
-  navigation,
-}) => {
+const ChallengeDetailsModal = ({ challenge, onClosed, isOpen, navigation }) => {
   if (!challenge) {
     onClosed();
     return;
@@ -49,9 +44,7 @@ export const ChallengeDetailsModal = ({
   const completedChallenges = useSelector(state => state.completedChallenges);
   const canceledChallenges = useSelector(state => state.canceledChallenges);
   const [commentInput, setCommentInput] = useState(null);
-  const [pickedPicturePath, setPickedImagePath] = useState(
-    urls.picturePlaceholder
-  );
+  const [pickedPicturePath, setPickedImagePath] = useState(null);
   const [pickedPictureBase64, setPickedImageBase64] = useState(null);
 
   const [loading, setLoading] = useState(false);
@@ -394,8 +387,12 @@ export const ChallengeDetailsModal = ({
       />
       {pickedPicturePath && (
         <Image
-          source={{ uri: pickedPicturePath }}
-          loadingIndicatorSource={{ uri: urls.picturePlaceholder }}
+          source={
+            pickedPicturePath
+              ? { uri: pickedPicturePath }
+              : Images.picturePlaceholder
+          }
+          loadingIndicatorSource={Images.picturePlaceholder}
           style={modalStyle.pickedPicture}
           resizeMethod="resize"
           // height={150}
@@ -614,3 +611,5 @@ const modalStyle = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+export default ChallengeDetailsModal;

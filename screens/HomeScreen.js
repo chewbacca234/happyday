@@ -4,8 +4,8 @@ import { ScreenTemplateSpaceAround, HomeCard, InfoAlert } from '../components';
 import { getUserLevel } from '../helpers/getUserLevel';
 import getDailyChallenge from '../helpers/getDailyChallenge';
 
-import { ChallengeDetailsModal } from './ChallengesScreens/ChallengeDetailsModal';
-import { CreateBattleModal } from './BattlesScreens/CreateBattleModal';
+import ChallengeDetailsModal from './ChallengesScreens/ChallengeDetailsModal';
+import CreateBattleModal from './BattlesScreens/CreateBattleModal';
 
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,7 +19,7 @@ import { addAllCompletedBattles } from '../reducers/completedBattles';
 import { addAllCanceledBattles } from '../reducers/canceledBattles';
 import { setLevel } from '../reducers/user';
 import { setDailyChallenge } from '../reducers/dailyChallenge';
-import { urls, styles, colors } from '../constants';
+import { Images, styles, colors } from '../config';
 import { firestoreDB } from '../firebase/firebase.config';
 import { addDoc, collection, doc } from 'firebase/firestore';
 
@@ -29,7 +29,7 @@ export default function HomeScreen({ navigation }) {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user);
   const friends = useSelector(state => state.friends);
-  const dailyChallenge = useSelector(state => state.dailyChallenge);
+  const dailyChallenge = useSelector(state => state.dailyChallenge.value);
   const inProgressChallenges = useSelector(state => state.inProgressChallenges);
   const completedChallenges = useSelector(state => state.completedChallenges);
   const canceledChallenges = useSelector(state => state.canceledChallenges);
@@ -266,19 +266,6 @@ export default function HomeScreen({ navigation }) {
     dispatch(setLevel({ ...level }));
   }, [user.score]);
 
-  useEffect(() => {
-    if (!dailyChallenge) {
-      // Get the daily challenge
-      (async () => {
-        const newDailyChallenge = await getDailyChallenge();
-        if (newDailyChallenge) {
-          // Store the daily challenge to reducer
-          dispatch(setDailyChallenge(newDailyChallenge));
-        }
-      })();
-    }
-  }, []);
-
   const handleOpenChallengeModal = () => {
     setDailyChallengeModalVisible(true);
   };
@@ -338,10 +325,8 @@ export default function HomeScreen({ navigation }) {
         <HomeCard
           type="image"
           title="Défi du jour :"
-          description={[dailyChallenge?.challenge.name ?? 'Chargement...']}
-          rightContent={
-            dailyChallenge?.challenge.picture ?? urls.picturePlaceholder
-          }
+          description={[dailyChallenge.challenge?.name ?? 'Chargement...']}
+          rightContent={dailyChallenge.challenge?.picture ?? null}
           onPress={handleOpenChallengeModal}
         />
         <HomeCard

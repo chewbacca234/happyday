@@ -19,13 +19,18 @@ import MyBattlesScreen from './BattlesScreens/MyBattlesScreen';
 import HelpScreen from './HelpScreen';
 
 import { TopBar, DrawerContent } from '../components';
-import { styles, colors, bottomBarHeight } from '../constants';
+import { styles, colors, bottomBarHeight } from '../config';
 import AccessibilityScreen from './AccessibilityScreen';
 import { firebaseAuth } from '../firebase/firebase.config';
 import { onAuthStateChanged } from 'firebase/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import AnonymousSigninScreen from './AuthScreens/AnonymousSigninScreen';
+import { getDailyChallenge } from '../helpers/getDailyChallenge';
+import { useDispatch, useSelector } from 'react-redux';
+import { setDailyChallenge } from '../reducers/dailyChallenge';
+import { getDailyChallengeFromFirestore } from '../helpers/getDailyChallengeFromFirestore';
+import areSameDays from '../helpers/areSameDays';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -232,6 +237,29 @@ const DrawerNavigator = () => {
 export default function LandingScreen() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   // const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+  const dailyChallenge = useSelector(state => state.dailyChallenge.value);
+
+  console.log('[LANDING SCREEN] dailyChallenge', dailyChallenge);
+
+  useEffect(() => {
+    (async () => {
+      const newDailyChallenge = await getDailyChallengeFromFirestore();
+      console.log('newDailyChallenge', newDailyChallenge);
+
+      // UPDATE Redux daily challenge if necessary
+      if (
+        !areSameDays([
+          newDailyChallenge.lastUpdate,
+          dailyChallenge.lastUpdate
+            ? new Date(dailyChallenge.lastUpdate)
+            : null,
+        ])
+      ) {
+        dispatch(setDailyChallenge(newDailyChallenge));
+      }
+    })();
+  }, []);
 
   onAuthStateChanged(firebaseAuth, async user => {
     // setLoading(true);

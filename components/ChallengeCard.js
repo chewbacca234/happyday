@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors, styles, urls } from '../constants';
+import { colors, styles, Images } from '../config';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Badge } from 'react-native-elements';
 
@@ -68,7 +68,7 @@ export function ChallengeCard({
       <View style={cardStyles.contentSection}>
         <Image
           source={rightContent}
-          loadingIndicatorSource={{ uri: urls.picturePlaceholder }}
+          loadingIndicatorSource={Images.picturePlaceholder}
           style={cardStyles.image}
         />
       </View>

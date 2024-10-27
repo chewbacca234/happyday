@@ -3,7 +3,7 @@ import ModalBox from 'react-native-modalbox';
 import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
-import { styles, colors } from '../../constants';
+import { styles, colors, Images } from '../../config';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const EXPO_PUBLIC_BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
@@ -85,7 +85,7 @@ export default function FriendDetailsModal({ onClosed, isOpen, friendData }) {
             source={
               friendData.picture
                 ? { uri: `data:image/jpeg;base64,${friendData.picture}` }
-                : require('../../assets/images/avatar-default.jpg')
+                : Images.defaultAvatar
             }
             resizeMethod="resize"
           />

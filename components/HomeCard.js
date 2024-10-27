@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
-import { styles, urls, colors } from '../constants';
+import { styles, Images, colors } from '../config';
 
 export function HomeCard({
   type,
@@ -18,7 +18,7 @@ export function HomeCard({
       contentSection = (
         <Image
           source={{ uri: rightContent }}
-          loadingIndicatorSource={{ uri: urls.picturePlaceholder }}
+          loadingIndicatorSource={Images.picturePlaceholderUri}
           style={cardStyles.image}
         />
       );

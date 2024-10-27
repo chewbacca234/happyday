@@ -19,7 +19,7 @@ import {
   ErrorAlert,
   AvatarPicker,
 } from '../../components';
-import { colors, styles } from '../../constants';
+import { colors, styles } from '../../config';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { firebaseAuth, firestoreDB } from '../../firebase/firebase.config';
 import { doc, setDoc } from 'firebase/firestore';

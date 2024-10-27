@@ -1,5 +1,5 @@
 import React from 'react';
-import { styles, colors, urls } from '../../constants';
+import { styles, colors, Images } from '../../config';
 import ModalBox from 'react-native-modalbox';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
@@ -118,8 +118,8 @@ const BattleDetailsModal = ({ onClosed, battleData, navigation, isOpen }) => {
             />
             {/* {pickedPicturePath && ( */}
             <Image
-              source={{ uri: urls.picturePlaceholder }}
-              loadingIndicatorSource={{ uri: urls.picturePlaceholder }}
+              source={Images.picturePlaceholder}
+              loadingIndicatorSource={Images.picturePlaceholder}
               style={modalStyle.pickedPicture}
               resizeMethod="resize"
               // height={150}

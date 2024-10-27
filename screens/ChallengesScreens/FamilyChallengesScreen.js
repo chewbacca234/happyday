@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import { styles } from '../../constants';
+import { styles } from '../../config';
 import { ChallengeDetailsModal } from './ChallengeDetailsModal';
 import { useState } from 'react';
 import { ScreenTemplateCenter } from '../../components';

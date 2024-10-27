@@ -1,4 +1,4 @@
-import { styles, colors, headerHeight } from '../../constants';
+import { styles, colors, headerHeight, Images } from '../../config';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useState, useEffect } from 'react';
 import {
@@ -71,7 +71,7 @@ export default function FriendsListScreen(navigation) {
             source={
               item.picture
                 ? { uri: `data:image/jpeg;base64,${item.picture}` }
-                : require('../../assets/images/avatar-default.jpg')
+                : Images.defaultAvatar
             }
             resizeMethod="resize"
           />

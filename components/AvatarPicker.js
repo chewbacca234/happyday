@@ -1,6 +1,7 @@
 import { Image, Keyboard, TouchableOpacity } from 'react-native';
 import { AvatarsModal } from './AvatarsModal';
 import { useState } from 'react';
+import { Images } from '../config';
 
 export function AvatarPicker({ handleChooseAvatar, hasAvatar }) {
   const [isModalOpen, setIsAvatarModalOpen] = useState(false);
@@ -33,11 +34,7 @@ export function AvatarPicker({ handleChooseAvatar, hasAvatar }) {
             resizeMode: 'cover',
             borderRadius: 10,
           }}
-          source={{
-            uri: !hasAvatar
-              ? 'https://res.cloudinary.com/dbh7czsdd/image/upload/v1701205723/happyday/avatars/nwc57jlxauf4d8pq7sia.png'
-              : hasAvatar,
-          }}
+          source={!hasAvatar ? Images.defaultAvatar : hasAvatar}
           resizeMethod="resize"
         />
       </TouchableOpacity>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
-import { styles, colors } from '../../constants';
+import { styles, colors } from '../../config';
 import ModalBox from 'react-native-modalbox';
 import { useSelector, useDispatch } from 'react-redux';
 import { addOneInProgressBattles } from '../../reducers/inProgressBattles';
@@ -22,7 +22,7 @@ import { InputErrorAlert, ErrorAlert } from './../../components';
 
 const EXPO_PUBLIC_BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
 
-export const CreateBattleModal = ({ navigation, isOpen, onClosed }) => {
+const CreateBattleModal = ({ navigation, isOpen, onClosed }) => {
   const dispatch = useDispatch();
   const username = useSelector(state => state.user.username);
   const user_id = useSelector(state => state.user._id);
@@ -534,3 +534,5 @@ const modalStyle = StyleSheet.create({
     fontSize: 15,
   },
 });
+
+export default CreateBattleModal;

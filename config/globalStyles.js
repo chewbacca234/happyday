@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors } from './colors';
+import { colors } from './theme';
 
 export const headerHeight = 50;
 export const bottomBarHeight = 55;

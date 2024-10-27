@@ -8,12 +8,12 @@ import { signOut } from 'firebase/auth';
 import { firebaseAuth } from '../firebase/firebase.config';
 import { WarningAlert } from './WarningAlert';
 import { Image, Text, View } from 'react-native';
-import { styles } from '../constants';
+import { styles } from '../config';
 import { useSelector } from 'react-redux';
 
 export function DrawerContent(props) {
   const user = useSelector(state => state.user);
-  console.log('[DRAWER CONTENT] user:', user);
+  // console.log('[DRAWER CONTENT] user:', user);
   // console.log('firebaseAuth current user:', firebaseAuth.currentUser);
 
   function handleLogout() {

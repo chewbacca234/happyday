@@ -11,7 +11,7 @@ import { Badge } from 'react-native-elements';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { LinearGradient } from 'expo-linear-gradient';
-import { styles, colors, headerHeight } from '../../constants';
+import { styles, colors, headerHeight } from '../../config';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import BattleDetailsModal from './BattleDetailsModal';
 import { CreateBattleModal } from './CreateBattleModal';

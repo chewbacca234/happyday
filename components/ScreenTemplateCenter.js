@@ -1,6 +1,6 @@
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
-import { styles, colors, headerHeight } from '../constants';
+import { styles, colors, headerHeight } from '../config';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { View } from 'react-native';
 

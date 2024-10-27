@@ -2,7 +2,7 @@ import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { styles, colors, headerHeight } from '../constants';
+import { styles, colors, headerHeight } from '../config';
 
 export function TopBar({ navigation, route }) {
   const safeInsetTop = useSafeAreaInsets().top;

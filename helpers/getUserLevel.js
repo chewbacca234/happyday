@@ -1,5 +1,5 @@
 import { Image, View } from 'react-native';
-import { styles } from '../constants';
+import { styles } from '../config';
 
 export const getUserLevel = score => {
   let level = { name: null, iconPath: null };

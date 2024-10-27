@@ -1,7 +1,7 @@
-export { colors } from './colors';
+export { colors } from './theme';
 export {
   default as styles,
   headerHeight,
   bottomBarHeight,
 } from './globalStyles';
-export { urls } from './urls';
+export { Images as Images } from './images';

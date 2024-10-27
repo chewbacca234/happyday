@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import { styles } from '../../constants';
+import { styles } from '../../config';
 import { ScreenTemplateSpaceAround } from '../../components';
 
 export default function LoginScreen({ navigation }) {

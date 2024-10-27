@@ -1,13 +1,13 @@
 import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 import ModalBox from 'react-native-modalbox';
-import { colors, urls } from '../constants';
+import { colors, Images } from '../config';
 
 export function AvatarsModal({
   isOpen = false,
   onClose = () => null,
   onSelect = () => null,
 }) {
-  const avatarsData = urls.avatarsData;
+  const avatarsData = Images.avatarsData;
 
   const avatars = avatarsData.map((avatar, i) => {
     return (
@@ -24,7 +24,7 @@ export function AvatarsModal({
             resizeMode: 'cover',
             borderRadius: 10,
           }}
-          source={{ uri: avatar }}
+          source={avatar}
           resizeMethod="resize"
         />
       </TouchableOpacity>

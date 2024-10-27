@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { colors, styles } from '../../constants';
+import { colors, styles } from '../../config';
 import { ScreenTemplateCenter, ChallengeCard } from '../../components';
 import { ChallengeDetailsModal } from './ChallengeDetailsModal';
 

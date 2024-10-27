@@ -12,7 +12,7 @@ import React, { useState, useEffect } from 'react';
 import { logout } from '.././reducers/user';
 import * as ImagePicker from 'expo-image-picker';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
-import { styles } from '../constants';
+import { styles, Images } from '../config';
 import { ScreenTemplateCenter } from '../components';
 
 const EXPO_PUBLIC_BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
@@ -133,7 +133,7 @@ export default function ProfileScreen({ route }) {
               source={
                 userData.picture
                   ? { uri: `data:image/jpeg;base64,${userData.picture}` }
-                  : require('../assets/images/avatar-default.jpg')
+                  : Images.defaultAvatar
               }
               resizeMethod="resize"
             />

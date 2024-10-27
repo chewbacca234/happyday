@@ -10,7 +10,7 @@ import {
   Keyboard,
   Platform,
 } from 'react-native';
-import { styles, colors } from '../../constants';
+import { styles, colors } from '../../config';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import {
   ScreenTemplateSpaceAround,

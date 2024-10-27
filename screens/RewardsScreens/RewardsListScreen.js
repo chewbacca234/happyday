@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { styles } from '../../constants';
+import { styles } from '../../config';
 import { useState } from 'react';
 import { ScreenTemplateCenter } from './../../components';
 

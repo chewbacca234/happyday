@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import { styles } from '../constants';
+import { styles } from '../config';
 import { ScreenTemplateCenter } from '../components';
 
 export default function HelpScreen() {

@@ -12,7 +12,7 @@ import {
   ScrollView,
   Image,
 } from 'react-native';
-import { styles, colors } from '../../constants';
+import { styles, colors } from '../../config';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import {
   ScreenTemplateSpaceAround,
@@ -117,7 +117,7 @@ export default function AnonymousSigninScreen({ navigation }) {
             blurOnSubmit={false}
           />
           <Text>Choisi ton avatar</Text>
-          <AvatarInput
+          <AvatarPicker
             handleChooseAvatar={handleChooseAvatar}
             hasAvatar={anonymousUserData.avatar}
           />

@@ -8,7 +8,7 @@ import {
 import { ScreenTemplateCenter, HomeCard } from './../../components';
 import { ChallengeDetailsModal } from './ChallengeDetailsModal';
 import { useState, useEffect } from 'react';
-import { colors, styles } from '../../constants';
+import { colors, styles } from '../../config';
 
 const EXPO_PUBLIC_BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
 
